@@ -7,10 +7,6 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
 
 .banner {
   background-size: cover;
@@ -35,6 +31,11 @@
   text-align: center;
 }
 
+.card {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
 
 .card-category {
   background-size: cover;
@@ -57,6 +58,7 @@
 .h1 {
   text-align: center;
   margin-top: 10px;
+
 }
 
 
@@ -69,4 +71,12 @@
 
 .boton {
   text-align: center;
+}
+
+.delete {
+  color: red;
+}
+
+.card-body p {
+  color: rgb(88, 88, 88)
 }

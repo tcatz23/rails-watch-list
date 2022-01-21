@@ -1,13 +1,40 @@
-<h1>Películas de <%= @list.name %></h1>
+<%= render 'shared/navbar' %>
 
-<%= link_to "View all lists", lists_path(@lists), class: "btn btn-primary"%>
+<%# Esto es el banner %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/7081161/pexels-photo-7081161.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);">
+  <div class="container">
+    <h1><strong>Películas de <%= @list.name %></strong></h1>
+  </div>
+</div>
 
-<%= link_to "Add a movie", lists_path(@lists), class: "btn btn-secondary"%>
+<%# Esto es el el add a movie btn %>
+<div class="container h1">
+<%= link_to "Add a bookmark", new_list_bookmark_path(@list) , class:"btn btn-primary"%>
+</div>
 
+
+<div class="card-group mt-4">
+<%# Esta es la card  %>
 <% @list.movies.each do |movie| %>
-<%= movie.title %>
-<% movie.bookmarks.each do |bookmark| %>
-<%= bookmark.comment %>
+<div class="card" >
+  <img src="https://media1.popsugar-assets.com/files/thumbor/7CwCuGAKxTrQ4wPyOBpKjSsd1JI/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2017/04/19/743/n/41542884/5429b59c8e78fbc4_MCDTITA_FE014_H_1_.JPG" class="card-img-top" alt="movie-image">
+  <div class="card-body">
+  <%# Este es el titulo de la película  %>
+    <h5 class="card-title"> <strong><%= movie.title %></strong></h5>
+    <%# Este es el overview de la película  %>
+    <p class="card-text"><%= movie.overview %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+  <%# Este es el bookmark de la película  %>
+   <% movie.bookmarks.each do |bookmark| %>
+    <li class="list-group-item">
+      <div class='d-flex justify-content-between'>
+        <div><i class="fas fa-comment"></i> <%= bookmark.comment %></div>
+        <%= link_to "Delete", delete_bookmark_path(bookmark), method: :delete, data: {confirm: 'Are you sure?'}, class:"delete" %>
+      </div>
+    </li>
+  </ul>
+</div>
 <% end %>
 <% end %>
-<%= link_to 'Delete', lists_path(@lists), method: :delete, data: {confirm: 'Are you sure?'} %>
+</div>
