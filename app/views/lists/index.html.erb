@@ -21,8 +21,10 @@
 
 <div class="grid-container mt-5">
 <% @lists.each do |list| %>
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/3709370/pexels-photo-3709370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
-<%= link_to list.name, list_path(list[:id]) %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>');">
+<div class='categoria'>
+<%= link_to list.name, list_path(list[:id]), class: 'link' %>
+</div>
 </div>
 <% end %>
 </div>

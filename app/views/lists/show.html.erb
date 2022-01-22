@@ -1,13 +1,13 @@
 <%= render 'shared/navbar' %>
 
 <%# Esto es el banner %>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/7081161/pexels-photo-7081161.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>');">
   <div class="container">
-    <h1><strong>Películas de <%= @list.name %></strong></h1>
+    <h1><strong><%= @list.name %></strong></h1>
   </div>
 </div>
 
-<%# Esto es el el add a movie btn %>
+<%# Esto es el el add a bookmark btn %>
 <div class="container h1">
 <%= link_to "Add a bookmark", new_list_bookmark_path(@list) , class:"btn btn-primary"%>
 </div>
